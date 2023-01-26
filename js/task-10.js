@@ -9,19 +9,18 @@ let num = 0;
 
 numberOfElements.addEventListener('input', event => {
   num = event.currentTarget.value;
-  console.log(num);
+
 })
 
 createButtonEl.addEventListener('click', onCreateButtonClick);
 
 function onCreateButtonClick() {
   let size = 20;
-  const collection = Array().fill('');
-  console.log(collection);
+  const collection = Array(+num).fill('');
   let boxes = collection.map(element => {
     let color = getRandomHexColor();
     size += 10;
-    return `<div width="${size}px" height="${size}px" style="color:${color}"></div>`;
+    return `<div style="color:${color}; width:${size}px; height:${size}px"></div>`;
   });
 
   boxesEl.insertAdjacentHTML("afterbegin", ...boxes);
@@ -30,14 +29,15 @@ function onCreateButtonClick() {
 
 
 
-function createBoxes(amount) {
-  let size = 20;
-  const collection = Array(amount).fill('');
-  return collection.map(element => {
-    let color = getRandomHexColor();
-    size += 10;
-    return `<div width="${size}px" height="${size}px" style="color:${color}"></div>`;
-  });
-}
+// function createBoxes(amount) {
+//   let size = 20;
+//   const collection = Array(amount).fill('');
+//   return collection.map(element => {
+//     let color = getRandomHexColor();
+//     size += 10;
+//     return `<div width="${size}px" height="${size}px" style="color:${color}"></div>`;
+//   });
+// }
 
+// console.log(createBoxes(5));
 
